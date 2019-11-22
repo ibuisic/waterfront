@@ -1,0 +1,25 @@
+{
+  "name": "waterfront",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ibuisic/waterfront.git",
+  "author": "Ivan Buisic <buisic.ivan@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.28.0",
+    "autoprefixer": "^9.7.1",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.0.1",
+    "webpack-entry2lib-plugin": "^1.0.51",
+    "webpack-notifier": "^1.8.0"
+  },
+  "scripts": {
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "browserslist": [
+    "> 1%"
+  ]
+}

@@ -1,0 +1,7 @@
+global:
+  css:
+    base:
+      build/global.css: {}
+  js:
+    build/runtime.js: {}
+    build/global.js: {}

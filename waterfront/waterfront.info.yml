@@ -1,0 +1,8 @@
+name: waterfront
+description: A starter kit theme for Drupal 8 and Webpack encore.
+core: 8.x
+type: theme
+base theme: waterfront_basis
+libraries:
+  - waterfront/global
+

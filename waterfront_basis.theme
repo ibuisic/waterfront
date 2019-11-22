@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * waterfront_basis theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+use Drupal\waterfront_basis\Theme\UtilityClasses;
+
+/**
+ * Implements hook_library_info_alter()
+ */
+function waterfront_basis_library_info_alter(&$libraries) {
+  // Load custom CSS library
+  $custom_css = theme_get_setting('waterfront_basis_custom_css_on');
+  if ($custom_css) {
+    $libraries['global']['css']['theme']['/sites/default/files/waterfront_basis-custom.css'] = [];
+  }
+}
+
+/**
+ * Implements hook_preprocess_page()
+ */
+function waterfront_basis_preprocess_page(&$variables) {
+  UtilityClasses::makeClasses('main_container_classes', $variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for region.html.twig.
+ */
+function waterfront_basis_preprocess_region(&$variables) {
+  UtilityClasses::makeClasses('region_classes_' . $variables['elements']['#region'], $variables, array('addToAttributes' => true));
+}
+
+/**
+ * Implements hook_preprocess_image()
+ */
+function waterfront_basis_preprocess_image(&$variables) {
+  UtilityClasses::makeClasses('image_classes', $variables);
+}
+
+/**
+ * Implements template_preprocess_input() for form input templates.
+ */
+function waterfront_basis_preprocess_input(&$variables) {
+  UtilityClasses::makeClasses('submit_classes', $variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views-view-table.html.twig.
+ */
+function waterfront_basis_preprocess_views_view_table(&$variables) {
+  UtilityClasses::makeClasses('table_classes', $variables);
+}
+
+/**
+ * Implements hook_preprocess_block()
+ */
+function waterfront_basis_preprocess_block__system_branding_block(&$variables) {
+  UtilityClasses::addSetting('inline_logo', $variables);
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function waterfront_basis_preprocess_menu(&$variables) {
+  UtilityClasses::addSetting('menu_icons', $variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ */
+function waterfront_basis_theme_suggestions_input_alter(array &$suggestions, array $variables) {
+  if ($variables['element']['#type'] == 'submit' && theme_get_setting('submit_button')) {
+    $suggestions[] = 'input__submit_button';
+  }
+}
