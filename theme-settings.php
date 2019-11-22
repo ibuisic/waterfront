@@ -123,38 +123,6 @@ function waterfront_basis_form_system_theme_settings_alter(&$form, FormStateInte
     '#default_value' => theme_get_setting('submit_button')
   );
 
-  $form['forms']['custom_forms'] = array(
-    '#type' => 'details',
-    '#title' => 'Custom forms',
-    '#description' => t('Add custom CSS classes to selected form elements'),
-    '#collapsible' => true,
-    '#open' => true,
-  );
-
-  $form['forms']['custom_forms']['custom_form_select'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Select'),
-    '#default_value' => theme_get_setting('custom_form_select')
-  );
-
-  $form['forms']['custom_forms']['custom_form_checkbox'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Checkbox'),
-    '#default_value' => theme_get_setting('custom_form_checkbox')
-  );
-
-  $form['forms']['custom_forms']['custom_form_radio'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Radio'),
-    '#default_value' => theme_get_setting('custom_form_radio')
-  );
-
-  $form['forms']['custom_forms']['custom_form_file'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('File'),
-    '#default_value' => theme_get_setting('custom_form_file')
-  );
-
   // Images
   $form['images_and_tables'] = array(
     '#type' => 'details',
